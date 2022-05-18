@@ -36,31 +36,31 @@ class GigaFactory(ElectricCar):
     owner (str): (class attribute) Who owns the factory.
     """
     
-    total_cars = 125000
+    total_cars = 19000
     """
     total_cars (int): (class attribute) The current total number of cars 
         that have been built at the factory.
     """
     
-    model3_cars = 92500
+    model3_cars = 8553
     """
     model3_cars (int): (class attribute) The current total number of 
         Model 3 cars that have been built at the factory.
     """
     
-    modelY_cars = 12000
+    modelY_cars = 3598
     """
     model3_cars (int): (class attribute) The current total number of 
         Model 3 cars that have been built at the factory.
     """
     
-    modelS_cars = 5000
+    modelS_cars = 1939
     """
     modelS_cars (int): (class attribute) The current total number of 
         Model S cars that have been built at the factory.
     """
     
-    modelX_cars = 10500
+    modelX_cars = 4910
     """
     modelX_cars (int): (class attribute) The current total number of 
         Model X cars that have been built at the factory.
@@ -204,10 +204,10 @@ class GigaFactory(ElectricCar):
         Returns the ratio of each electric car model that has been 
             produced in relation to total electric cars.
         """
-        return (f"Percentage of Model3: {cls.model3_ratio()}%" 
-                f"Percentage of ModelS: {cls.modelS_ratio()}"
-                f"Percentage of ModelX: {cls.modelX_ratio()}"
-                f"Percentage of ModelY: {cls.modelY_ratio()}")
+        return (f"Percentage of Model3: {cls.model3_ratio()}%\n" 
+                f"Percentage of ModelS: {cls.modelS_ratio()}%\n"
+                f"Percentage of ModelX: {cls.modelX_ratio()}%\n"
+                f"Percentage of ModelY: {cls.modelY_ratio()}%\n")
     
     @staticmethod 
     def net_change_ratios(list1, list2):
@@ -241,15 +241,15 @@ class GigaFactory(ElectricCar):
         after_mx = list2[2]
         after_my = list2[3]
         
-        net_m3 = (after_m3 - before_m3) * 100
-        net_ms = (after_ms - before_ms) * 100
-        net_mx = (after_mx - before_mx) * 100
-        net_my = (after_my - before_my) * 100
+        net_m3 = (after_m3 - before_m3)
+        net_ms = (after_ms - before_ms)
+        net_mx = (after_mx - before_mx)
+        net_my = (after_my - before_my)
         
-        net_m3 = '%.2f' % round(net_m3, 2)
-        net_ms = '%.2f' % round(net_ms, 2)
-        net_mx = '%.2f' % round(net_mx, 2)
-        net_my = '%.2f' % round(net_my, 2)
+        net_m3 = '%.3f' % round(net_m3, 3)
+        net_ms = '%.3f' % round(net_ms, 3)
+        net_mx = '%.3f' % round(net_mx, 3)
+        net_my = '%.3f' % round(net_my, 3)
         
         return (f"Model3: {net_m3}%\n"
                 f"ModelS: {net_ms}%\n" 
@@ -290,15 +290,15 @@ def main():
     before_my = float(GigaFactory.modelY_ratio())
     list1 = [before_m3, before_ms, before_mx, before_my]
     
-    GigaFactory.production_ratio()
+    print(GigaFactory.production_ratio())
     
     print("\nCreate GigaFactory object:")
     
     g = GigaFactory()
     g.build("model3")
-    g.build("models", 25)
-    g.build("modelx", 3)
-    g.build("modely", 2)
+    g.build("models", 6)
+    g.build("modelx", 11)
+    g.build("modely", 20)
     
     print()
     print(g.manufactured_cars)
@@ -311,7 +311,7 @@ def main():
     after_my = float(GigaFactory.modelY_ratio())
     list2 = [after_m3, after_ms, after_mx, after_my]
     
-    GigaFactory.production_ratio()
+    print(GigaFactory.production_ratio())
     
     print("\nPercentage Change in Production Ratios)")
     
