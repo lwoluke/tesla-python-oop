@@ -195,7 +195,7 @@ class ModelS(ElectricCar):
               f"made in {self.year_built}\n"
               f"Has self driving: {self._has_selfdriving}\n" 
               f"Has plaid mode: {self._has_plaid_mode}\n"
-              f"Has lane assist: {self._has_lane_assist}"
+              f"Has lane assist: {self._has_lane_assist}\n"
               f"Charge time: {self.charge_time}") 
    
     def __str__(self):
