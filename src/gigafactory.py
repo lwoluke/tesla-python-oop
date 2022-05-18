@@ -220,25 +220,25 @@ class GigaFactory(ElectricCar):
             return(f"The {model} isn't a car that Tesla has, "
                   "or hasn't become ready for production yet.")
     
-    def remove(self, arr, identification):
+    def remove(self, arr, obj):
         """
-        Deletes the specified ElectricCar instance object and
+        Deletes the specified Tesla car instance object and
             removes it from the cars list.
 
         Args:
             arr (list): The list used to delete the specified object.
-            identification (int): ID needed to confirm this action.
+            obj (int): The specified object to delete.
 
         """   
-        if identification in arr:
-            index = arr.index(identification)
-            print('Destructor called. ElectricCar object ' \
+        if obj in arr:
+            index = arr.index(obj)
+            print('Destructor called. Tesla car object ' \
                   'has been deleted')
-            del(arr[index])
+            del arr[index]
             
         else:
-            print("Unable to remove ElectricCar object " + 
-                  "since ID doesn't exist in list.")  
+            print("Unable to remove Tesla car object " + 
+                  "since object doesn't exist in list.")  
       
     @classmethod 
     def get_details(cls):
