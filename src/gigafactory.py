@@ -104,38 +104,46 @@ class GigaFactory(ElectricCar):
         """
         if model.lower() == "model3":
             print(f"Building Model3 Batch of Size {batch_size}...")
+            
             for i in range(batch_size):
                 self._manufactured_cars.append(Model3())
                 GigaFactory.model3_cars += 1
                 GigaFactory.total_cars += 1
                 self._production_size += 1
+                
             return f'Successfully built {batch_size} Model 3 car(s)'
             
         elif model.lower() == "models":
             print(f"Building ModelS Batch of Size {batch_size}...")
+            
             for i in range(batch_size):
                 self._manufactured_cars.append(ModelS())
                 GigaFactory.modelS_cars += 1
                 GigaFactory.total_cars += 1
                 self._production_size += 1
+                
             return f'Successfully built {batch_size} Model S car(s)'
             
         elif model.lower() == "modelx":
             print(f"Building ModelX Batch of Size {batch_size}...")
+            
             for i in range(batch_size):
                 self._manufactured_cars.append(ModelX())
                 GigaFactory.modelX_cars += 1
                 GigaFactory.total_cars += 1
                 self._production_size += 1
+                
             return f'Successfully built {batch_size} Model X car(s)'
             
         elif model.lower() == "modely":
             print(f"Building ModelY Batch of Size {batch_size}...")
+            
             for i in range(batch_size):
                 self._manufactured_cars.append(ModelY())
                 GigaFactory.modelY_cars += 1
                 GigaFactory.total_cars += 1
                 self._production_size += 1
+                
             return f'Successfully built {batch_size} Model Y car(s)'
         
         else:
@@ -166,54 +174,70 @@ class GigaFactory(ElectricCar):
         
         if model.lower() == "model3":
             print(f"Selling {amt_to_sell} Model 3 cars...")
+            
             for i in reversed(range(len(self.manufactured_cars))):
+                
                 if amt_sold == amt_to_sell:
                     return f'Successfully sold {amt_to_sell} Model 3 car(s)'
+                
                 if isinstance(self.manufactured_cars[i], Model3):
                     del self.manufactured_cars[i]
                     GigaFactory.model3_cars -= 1
                     GigaFactory.total_cars -= 1
                     self._production_size -= 1
                     amt_sold += 1
+                    
             return f'Unable to sell {amt_to_sell} Model 3 car(s)'
             
         elif model.lower() == "models":
             print(f"Selling {amt_to_sell} Model S cars...")
+            
             for i in reversed(range(len(self.manufactured_cars))):
+                
                 if amt_sold == amt_to_sell:
                     return f'Successfully sold {amt_to_sell} Model S car(s)'
+                
                 if isinstance(self.manufactured_cars[i], ModelS):
                     del self.manufactured_cars[i]
                     GigaFactory.modelS_cars -= 1
                     GigaFactory.total_cars -= 1
                     self._production_size -= 1
                     amt_sold += 1
+                    
             return f'Unable to sell {amt_to_sell} Model S car(s)'
             
         elif model.lower() == "modelx":
             print(f"Selling {amt_to_sell} Model X cars...")
+            
             for i in reversed(range(len(self.manufactured_cars))):
+                
                 if amt_sold == amt_to_sell:
                     return f'Successfully sold {amt_to_sell} Model X car(s)'
+                
                 if isinstance(self.manufactured_cars[i], ModelX):
                     del self.manufactured_cars[i]
                     GigaFactory.modelX_cars -= 1
                     GigaFactory.total_cars -= 1
                     self._production_size -= 1
                     amt_sold += 1
+                    
             return f'Unable to sell {amt_to_sell} Model X car(s)'
             
         elif model.lower() == "modely":
             print(f"Selling {amt_to_sell} Model Y cars...")
+            
             for i in reversed(range(len(self.manufactured_cars))):
+                
                 if amt_sold == amt_to_sell:
                     return f'Successfully sold {amt_to_sell} Model Y car(s)'
+                
                 if isinstance(self.manufactured_cars[i], ModelY):
                     del self.manufactured_cars[i]
                     GigaFactory.modelY_cars -= 1
                     GigaFactory.total_cars -= 1
                     self._production_size -= 1
                     amt_sold += 1
+                    
             return f'Unable to sell {amt_to_sell} Model Y car(s)'
         
         else:
