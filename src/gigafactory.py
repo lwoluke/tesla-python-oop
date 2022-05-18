@@ -90,8 +90,8 @@ class GigaFactory(ElectricCar):
             car model.
 
         Args:
-            model (TYPE): The name of the Tesla car model to build.
-            batch_size (TYPE, optional): How many cars of that 
+            model (str): The name of the Tesla car model to build.
+            batch_size (int, optional): How many cars of that 
                 particular model name that will be built. Defaults to 1.
                 
         """
@@ -138,8 +138,8 @@ class GigaFactory(ElectricCar):
             removes it from the cars list.
 
         Args:
-            arr (TYPE): The ElectricCar object to delete.
-            identification (TYPE): ID needed to confirm this action.
+            arr (list): The list used to delete the specified object.
+            identification (int): ID needed to confirm this action.
 
         """   
         if identification in arr:
