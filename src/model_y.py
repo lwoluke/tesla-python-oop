@@ -183,12 +183,12 @@ class ModelY(ElectricCar):
         """
         price = float(self.price)
         if self.inventory_type.lower() == "new":
-            print(f"Driving {self.inventory_type} ModelY...")
+            print(f"Driving {self.range_type} ModelY...")
             self._inventory_type = "Used"
             self._price = price * .8
             self._price = '${:,.2f}'.format(self._price)
         else:
-            print(f"Driving {self.inventory_type} ModelY...")
+            print(f"Driving {self.range_type} ModelY...")
             self._price = price * .9
             self._price = '${:,.2f}'.format(self._price)
             
