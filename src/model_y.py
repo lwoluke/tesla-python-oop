@@ -202,9 +202,9 @@ class ModelY(ElectricCar):
         """
         return(f"Additional feature(s) of this {self.model}, "
                f"made in {self.year_built}\n"
-               f"Has self driving: {self._has_selfdriving}"
-               f"Has tow hitch: {self._has_tow_hitch}"
-               f"Number of seats: {self._number_seats}"
+               f"Has self driving: {self._has_selfdriving}\n"
+               f"Has tow hitch: {self._has_tow_hitch}\n"
+               f"Number of seats: {self._number_seats}\n"
                f"Charge time: {self.charge_time}") 
     
     def __str__(self):
