@@ -178,7 +178,7 @@ class GigaFactory(ElectricCar):
             for i in reversed(range(len(self.manufactured_cars))):
                 
                 if amt_sold == amt_to_sell:
-                    return f'Successfully sold {amt_to_sell} Model 3 car(s)'
+                    return f'Success! Sold {amt_to_sell} Model 3 car(s)'
                 
                 if isinstance(self.manufactured_cars[i], Model3):
                     del self.manufactured_cars[i]
@@ -195,7 +195,7 @@ class GigaFactory(ElectricCar):
             for i in reversed(range(len(self.manufactured_cars))):
                 
                 if amt_sold == amt_to_sell:
-                    return f'Successfully sold {amt_to_sell} Model S car(s)'
+                    return f'Success! Sold {amt_to_sell} Model S car(s)'
                 
                 if isinstance(self.manufactured_cars[i], ModelS):
                     del self.manufactured_cars[i]
@@ -212,7 +212,7 @@ class GigaFactory(ElectricCar):
             for i in reversed(range(len(self.manufactured_cars))):
                 
                 if amt_sold == amt_to_sell:
-                    return f'Successfully sold {amt_to_sell} Model X car(s)'
+                    return f'Success! Sold {amt_to_sell} Model X car(s)'
                 
                 if isinstance(self.manufactured_cars[i], ModelX):
                     del self.manufactured_cars[i]
@@ -229,7 +229,7 @@ class GigaFactory(ElectricCar):
             for i in reversed(range(len(self.manufactured_cars))):
                 
                 if amt_sold == amt_to_sell:
-                    return f'Successfully sold {amt_to_sell} Model Y car(s)'
+                    return f'Success! Sold {amt_to_sell} Model Y car(s)'
                 
                 if isinstance(self.manufactured_cars[i], ModelY):
                     del self.manufactured_cars[i]
