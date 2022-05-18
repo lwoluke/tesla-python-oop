@@ -89,11 +89,18 @@ class GigaFactory(ElectricCar):
         Produces a specified number of cars for a particular Tesla 
             car model.
 
+        Updates the list of the GigaFactory object by adding Tesla car 
+            objects to the list to relfect these changes.
+
         Args:
             model (str): The name of the Tesla car model to build.
             batch_size (int, optional): How many cars of that 
                 particular model name that will be built. Defaults to 1.
-                
+
+        Returns:
+            str: Message explaining whether the batch of the specified
+                Tesla model was able to built successfully.
+
         """
         if model.lower() == "model3":
             print(f"Building Model3 Batch of Size {batch_size}...")
@@ -102,6 +109,7 @@ class GigaFactory(ElectricCar):
                 GigaFactory.model3_cars += 1
                 GigaFactory.total_cars += 1
                 self._production_size += 1
+            return f'Successfully built {batch_size} Model 3 car(s)'
             
         elif model.lower() == "models":
             print(f"Building ModelS Batch of Size {batch_size}...")
@@ -110,6 +118,7 @@ class GigaFactory(ElectricCar):
                 GigaFactory.modelS_cars += 1
                 GigaFactory.total_cars += 1
                 self._production_size += 1
+            return f'Successfully built {batch_size} Model S car(s)'
             
         elif model.lower() == "modelx":
             print(f"Building ModelX Batch of Size {batch_size}...")
@@ -118,6 +127,7 @@ class GigaFactory(ElectricCar):
                 GigaFactory.modelX_cars += 1
                 GigaFactory.total_cars += 1
                 self._production_size += 1
+            return f'Successfully built {batch_size} Model X car(s)'
             
         elif model.lower() == "modely":
             print(f"Building ModelY Batch of Size {batch_size}...")
@@ -126,12 +136,90 @@ class GigaFactory(ElectricCar):
                 GigaFactory.modelY_cars += 1
                 GigaFactory.total_cars += 1
                 self._production_size += 1
+            return f'Successfully built {batch_size} Model Y car(s)'
         
         else:
-            print(f"The {model} isn't a car that Tesla has, "
-                  "or hasn't become ready for production yet.")
+            return(f"The {model} isn't a car that Tesla has, "
+                   "or hasn't become ready for production yet.")
             
-      
+    def sell(self, model, amt_to_sell):
+        """
+        Sells a specified number of a particular car model. If there aren't 
+            any cars of that model name in the instance list, or there 
+            are more that are requested to be sold then exist in the instance
+            list, an error message will appear.
+        
+        Updates the list of the GigaFactory object by removing Tesla car 
+            objects from the list to relfect these changes.
+
+        Args:
+            model (str): The model name of the Tesla car that will be sold.
+            amt_to_sell (int): How many cars of that particular Tesla model
+                to sell.
+
+        Returns:
+            str: Message explaining whether the amount of the specified
+                Tesla model was able to sell successfully.
+
+        """
+        amt_sold = 0
+        
+        if model.lower() == "model3":
+            print(f"Selling {amt_to_sell} Model 3 cars...")
+            for i in reversed(range(len(self.manufactured_cars))):
+                if amt_sold == amt_to_sell:
+                    return f'Successfully sold {amt_to_sell} Model 3 car(s)'
+                if isinstance(self.manufactured_cars[i], Model3):
+                    del self.manufactured_cars[i]
+                    GigaFactory.model3_cars -= 1
+                    GigaFactory.total_cars -= 1
+                    self._production_size -= 1
+                    amt_sold += 1
+            return f'Unable to sell {amt_to_sell} Model 3 car(s)'
+            
+        elif model.lower() == "models":
+            print(f"Selling {amt_to_sell} Model S cars...")
+            for i in reversed(range(len(self.manufactured_cars))):
+                if amt_sold == amt_to_sell:
+                    return f'Successfully sold {amt_to_sell} Model S car(s)'
+                if isinstance(self.manufactured_cars[i], ModelS):
+                    del self.manufactured_cars[i]
+                    GigaFactory.modelS_cars -= 1
+                    GigaFactory.total_cars -= 1
+                    self._production_size -= 1
+                    amt_sold += 1
+            return f'Unable to sell {amt_to_sell} Model S car(s)'
+            
+        elif model.lower() == "modelx":
+            print(f"Selling {amt_to_sell} Model X cars...")
+            for i in reversed(range(len(self.manufactured_cars))):
+                if amt_sold == amt_to_sell:
+                    return f'Successfully sold {amt_to_sell} Model X car(s)'
+                if isinstance(self.manufactured_cars[i], ModelX):
+                    del self.manufactured_cars[i]
+                    GigaFactory.modelX_cars -= 1
+                    GigaFactory.total_cars -= 1
+                    self._production_size -= 1
+                    amt_sold += 1
+            return f'Unable to sell {amt_to_sell} Model X car(s)'
+            
+        elif model.lower() == "modely":
+            print(f"Selling {amt_to_sell} Model Y cars...")
+            for i in reversed(range(len(self.manufactured_cars))):
+                if amt_sold == amt_to_sell:
+                    return f'Successfully sold {amt_to_sell} Model Y car(s)'
+                if isinstance(self.manufactured_cars[i], ModelY):
+                    del self.manufactured_cars[i]
+                    GigaFactory.modelY_cars -= 1
+                    GigaFactory.total_cars -= 1
+                    self._production_size -= 1
+                    amt_sold += 1
+            return f'Unable to sell {amt_to_sell} Model Y car(s)'
+        
+        else:
+            return(f"The {model} isn't a car that Tesla has, "
+                  "or hasn't become ready for production yet.")
+    
     def remove(self, arr, identification):
         """
         Deletes the specified ElectricCar instance object and
@@ -295,10 +383,16 @@ def main():
     print("\nCreate GigaFactory object:")
     
     g = GigaFactory()
-    g.build("model3")
-    g.build("models", 6)
-    g.build("modelx", 11)
-    g.build("modely", 20)
+    
+    model3_build_amt = 2
+    modelS_build_amt = 6
+    modelX_build_amt = 10
+    modelY_build_amt = 20
+    
+    print(g.build("model3", model3_build_amt))
+    print(g.build("models", modelS_build_amt))
+    print(g.build("modelx", modelX_build_amt))
+    print(g.build("modely", modelY_build_amt))
     
     print()
     print(g.manufactured_cars)
@@ -313,9 +407,52 @@ def main():
     
     print(GigaFactory.production_ratio())
     
-    print("\nPercentage Change in Production Ratios)")
+    print("Percentage Change in Production Ratios)")
     
     print(GigaFactory.net_change_ratios(list1, list2))
+    
+    print("\nSelling Cars)")
+    print("Amount to sell for each model:")
+    
+    model3_sell_amt = 5
+    modelS_sell_amt = 2
+    modelX_sell_amt = 11
+    modelY_sell_amt = 8
+    
+    print(f"Model 3: {model3_sell_amt}")
+    print(f"Model S: {modelS_sell_amt}")
+    print(f"Model X: {modelX_sell_amt}")
+    print(f"Model Y: {modelY_sell_amt}\n")
+    
+    print("Won't be able to sell the desired amount of Model 3 cars.")
+    print(g.sell("model3", model3_sell_amt))
+    print()
+    
+    print("Will be able to sell the desired amount of Model S cars.")
+    print(g.sell("models", modelS_sell_amt))
+    print()
+    
+    print("Won't be able to sell the desired amount of Model X cars.")
+    print(g.sell("modelx", modelX_sell_amt))
+    print()
+    
+    print("Will be able to sell the desired amount of Model Y cars.")
+    print(g.sell("modely", modelY_sell_amt))
+    
+    print("\nUpdated Production Ratios)")
+    
+    after_m3 = float(GigaFactory.model3_ratio())
+    after_ms = float(GigaFactory.modelS_ratio())
+    after_mx = float(GigaFactory.modelX_ratio())
+    after_my = float(GigaFactory.modelY_ratio())
+    list3 = [after_m3, after_ms, after_mx, after_my]
+    
+    print(GigaFactory.production_ratio())
+    
+    print("Percentage Change in Production Ratios from Initial Production "
+          "Ratios)")
+    
+    print(GigaFactory.net_change_ratios(list1, list3))
     
     print("\nCall Destructor on GigaFactory object:")
     del(g)
