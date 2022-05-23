@@ -15,3 +15,5 @@ git clone "https://github.com/lwoluke/Text-Clustering.git"
 Video for beginners: https://www.youtube.com/watch?v=JeznW_7DlB0
 Free course: https://www.udemy.com/course/object-oriented-python-programming/
 If you've only done Java OOP before: https://realpython.com/oop-in-python-vs-java/
+
+### Blog post I made on the creation of this project: 
