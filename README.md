@@ -1,5 +1,5 @@
 # Tesla Giga Texas OOP
-Object oriented programming (OOP) using Python to create Tesla Giga Texas. It also features the company itself, employees, electric cars, among other classes.
+Object oriented programming (OOP) using Python to create Tesla Giga Texas. It features the company itself, employees, electric cars, among other classes.
 
 ## Setup
 To setup your computer, follow these steps:
