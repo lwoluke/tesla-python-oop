@@ -18,4 +18,4 @@ Free course: https://www.udemy.com/course/object-oriented-python-programming/
 
 If you've only done Java OOP before: https://realpython.com/oop-in-python-vs-java/
 
-### Blog post I made on the creation of this project: 
+### Blog post I made on the creation of this project: https://medium.com/@luke_o/tesla-giga-texas-python-oop-25c61599c103
